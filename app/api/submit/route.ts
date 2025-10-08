@@ -1,4 +1,3 @@
-import { html } from "framer-motion/client";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -11,7 +10,6 @@ export async function POST(request: Request) {
   const password = process.env.PASSWORD;
   const email = process.env.EMAIL;
   const host = process.env.HOST;
-  const port = process.env.PORT;
 
   const configOptions = {
     host: host,
@@ -35,7 +33,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: email,
-      to: "Konstantin Beran <bassembinmahdi@gmail.com>",
+      to: `Konstantin Beran <${EmpfangerEmail}>`,
       subject: "Neue Anfrage über das Kontaktformular",
       html: `
         <!DOCTYPE html>
